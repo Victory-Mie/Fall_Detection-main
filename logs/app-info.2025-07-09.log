@@ -1,0 +1,320 @@
+2025-07-09 12:15:26.290 [main] INFO  c.f.backend.BackendApplication - Starting BackendApplication using Java 17.0.15 with PID 1776 (D:\Commonuse\hku\project\project_work\fall_detection_frontend\Fall_Detection-main\Fall_Detection-main\FallDetection-Backend-master\target\classes started by WangJiayi in D:\Commonuse\hku\project\project_work\fall_detection_frontend\Fall_Detection-main\Fall_Detection-main\FallDetection-Backend-master)
+2025-07-09 12:15:26.295 [main] INFO  c.f.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-09 12:15:28.374 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-09 12:15:28.374 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-09 12:15:28.446 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 0 Redis repository interfaces.
+2025-07-09 12:15:29.367 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8083 (http)
+2025-07-09 12:15:29.380 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-07-09 12:15:29.382 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-09 12:15:29.382 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-07-09 12:15:29.607 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-09 12:15:29.608 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3227 ms
+2025-07-09 12:15:31.678 [main] INFO  c.b.m.e.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@52d645b1
+2025-07-09 12:15:31.980 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-07-09 12:15:32.038 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+2025-07-09 12:15:32.053 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8083 (http) with context path ''
+2025-07-09 12:15:32.055 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-07-09 12:15:32.057 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@77a247dc]]
+2025-07-09 12:15:32.057 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-07-09 12:15:32.076 [main] INFO  c.f.backend.BackendApplication - Started BackendApplication in 6.645 seconds (process running for 7.301)
+2025-07-09 12:16:31.395 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-07-09 12:17:15.589 [http-nio-8083-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-09 12:17:15.590 [http-nio-8083-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-09 12:17:15.592 [http-nio-8083-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-07-09 12:17:15.667 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:17:15.676 [http-nio-8083-exec-1] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:17:15.740 [http-nio-8083-exec-4] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:17:15.742 [http-nio-8083-exec-3] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:17:21.596 [http-nio-8083-exec-6] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:17:21.596 [http-nio-8083-exec-8] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:17:21.612 [http-nio-8083-exec-5] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:17:21.614 [http-nio-8083-exec-7] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:17:23.803 [http-nio-8083-exec-9] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:17:23.806 [http-nio-8083-exec-10] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:17:25.518 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:17:25.521 [http-nio-8083-exec-1] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:17:30.308 [http-nio-8083-exec-3] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:17:30.313 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:17:31.400 [http-nio-8083-exec-6] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:17:31.409 [http-nio-8083-exec-6] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:29:32.315 [http-nio-8083-exec-3] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:29:32.315 [http-nio-8083-exec-1] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:29:32.323 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:29:32.323 [http-nio-8083-exec-2] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:36:48.111 [http-nio-8083-exec-10] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:36:48.114 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:36:48.123 [http-nio-8083-exec-1] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:36:48.123 [http-nio-8083-exec-3] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:37:15.128 [http-nio-8083-exec-8] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:37:15.190 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:37:15.239 [http-nio-8083-exec-6] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 12:37:15.271 [http-nio-8083-exec-7] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:38:57.875 [http-nio-8083-exec-1] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 100198 ms. Closing WebSocketServerSockJsSession[id=b1pycwio].
+2025-07-09 12:39:06.360 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:39:06.375 [http-nio-8083-exec-6] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:40:27.572 [http-nio-8083-exec-6] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 80799 ms. Closing WebSocketServerSockJsSession[id=ognrtx22].
+2025-07-09 12:42:35.098 [http-nio-8083-exec-5] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:42:35.106 [http-nio-8083-exec-10] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:46:31.408 [MessageBroker-7] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 9 total, 2 closed abnormally (2 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(6)-CONNECTED(6)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 63], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 15], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 1, completed tasks = 131]
+2025-07-09 12:46:49.423 [http-nio-8083-exec-1] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:46:49.428 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:54:29.168 [http-nio-8083-exec-6] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:54:29.175 [http-nio-8083-exec-9] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:56:28.739 [http-nio-8083-exec-3] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:56:28.754 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:58:45.210 [http-nio-8083-exec-8] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 136201 ms. Closing WebSocketServerSockJsSession[id=e3vzd0jz].
+2025-07-09 12:58:51.367 [http-nio-8083-exec-3] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 12:58:51.376 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:01:32.031 [http-nio-8083-exec-2] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 160397 ms. Closing WebSocketServerSockJsSession[id=lsfqbplg].
+2025-07-09 13:01:34.685 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:01:34.689 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:03:51.327 [http-nio-8083-exec-5] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:03:51.334 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:16:31.416 [MessageBroker-5] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 37 total, 4 closed abnormally (4 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(27)-CONNECTED(27)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 249], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 63], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 608]
+2025-07-09 13:20:13.388 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:20:13.393 [http-nio-8083-exec-9] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:22:49.051 [http-nio-8083-exec-3] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 155535 ms. Closing WebSocketServerSockJsSession[id=gcksmdx1].
+2025-07-09 13:24:16.333 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:24:16.336 [http-nio-8083-exec-1] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:46:31.427 [MessageBroker-5] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 42 total, 5 closed abnormally (5 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(30)-CONNECTED(30)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 282], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 71], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 1036]
+2025-07-09 13:49:46.055 [http-nio-8083-exec-3] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 1529467 ms. Closing WebSocketServerSockJsSession[id=i1oavn0y].
+2025-07-09 13:54:49.219 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:54:49.290 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:57:55.435 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2025-07-09 13:57:55.436 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@77a247dc]]
+2025-07-09 13:57:55.436 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2025-07-09 13:58:08.333 [main] INFO  c.f.backend.BackendApplication - Starting BackendApplication using Java 17.0.15 with PID 35116 (D:\Commonuse\hku\project\project_work\fall_detection_frontend\Fall_Detection-main\Fall_Detection-main\FallDetection-Backend-master\target\classes started by WangJiayi in D:\Commonuse\hku\project\project_work\fall_detection_frontend\Fall_Detection-main\Fall_Detection-main\FallDetection-Backend-master)
+2025-07-09 13:58:08.334 [main] INFO  c.f.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-09 13:58:11.230 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-09 13:58:11.236 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-09 13:58:11.307 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 0 Redis repository interfaces.
+2025-07-09 13:58:12.444 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8083 (http)
+2025-07-09 13:58:12.464 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-07-09 13:58:12.474 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-09 13:58:12.474 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-07-09 13:58:12.682 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-09 13:58:12.698 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4277 ms
+2025-07-09 13:58:14.723 [main] INFO  c.b.m.e.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@52d645b1
+2025-07-09 13:58:15.063 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-07-09 13:58:15.235 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+2025-07-09 13:58:15.276 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8083 (http) with context path ''
+2025-07-09 13:58:15.276 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-07-09 13:58:15.276 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@55ec3725]]
+2025-07-09 13:58:15.276 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-07-09 13:58:15.313 [main] INFO  c.f.backend.BackendApplication - Started BackendApplication in 7.628 seconds (process running for 8.231)
+2025-07-09 13:58:22.904 [http-nio-8083-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-09 13:58:22.913 [http-nio-8083-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-09 13:58:22.930 [http-nio-8083-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-07-09 13:58:23.299 [http-nio-8083-exec-4] INFO  c.f.b.controller.ChatController - Starting stream chat for session: session_1752040536085_vl4o4fi3z with message: 用户描述：摔倒了
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 13:58:24.625 [http-nio-8083-exec-5] INFO  c.f.b.controller.ChatController - Starting stream chat for session: session_1752040536085_vl4o4fi3z with message: 用户描述：摔倒了
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 13:58:27.203 [http-nio-8083-exec-8] INFO  c.f.b.controller.ChatController - Starting stream chat for session: session_1752040536085_vl4o4fi3z with message: 用户描述：摔倒了
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 13:58:35.008 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:58:35.127 [http-nio-8083-exec-3] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 13:58:44.849 [http-nio-8083-exec-5] INFO  c.f.b.controller.ChatController - Starting stream chat for session: session_1752040714421_ohn6b3k6f with message: 用户描述：摔倒了，脚痛
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 13:59:03.276 [http-nio-8083-exec-8] INFO  c.f.b.controller.ChatController - Starting stream chat for session: session_1752040714421_ohn6b3k6f with message: 用户描述：摔倒了，脚痛
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 13:59:05.212 [http-nio-8083-exec-2] INFO  c.f.b.controller.ChatController - Starting stream chat for session: session_1752040714421_ohn6b3k6f with message: 用户描述：摔倒了，脚痛
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 13:59:14.551 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 3, completed tasks = 10]
+2025-07-09 14:02:37.564 [http-nio-8083-exec-7] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 241939 ms. Closing WebSocketServerSockJsSession[id=jsfz1qv4].
+2025-07-09 14:02:57.601 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 用户登录请求: LoginFormDTO(username=cathy, password=123456)
+2025-07-09 14:02:58.165 [http-nio-8083-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-09 14:02:59.260 [http-nio-8083-exec-4] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c0624dd
+2025-07-09 14:02:59.279 [http-nio-8083-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-09 14:03:01.634 [http-nio-8083-exec-5] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:03:01.788 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:03:02.588 [http-nio-8083-exec-2] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:03:02.597 [http-nio-8083-exec-6] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:03:18.189 [http-nio-8083-exec-3] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:03:18.195 [http-nio-8083-exec-10] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:03:20.015 [http-nio-8083-exec-7] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:03:20.020 [http-nio-8083-exec-9] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:03:26.432 [http-nio-8083-exec-1] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:03:26.443 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:04:39.992 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:04:40.000 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:04:45.613 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:04:45.622 [http-nio-8083-exec-6] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:05:06.745 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:05:06.756 [http-nio-8083-exec-5] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:05:06.768 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:05:06.782 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:06:55.621 [http-nio-8083-exec-1] INFO  c.f.b.controller.UserController - 用户登录请求: LoginFormDTO(username=cathy, password=123456)
+2025-07-09 14:06:55.747 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:06:55.896 [http-nio-8083-exec-5] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:06:56.279 [http-nio-8083-exec-6] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:06:56.286 [http-nio-8083-exec-7] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:07:06.853 [http-nio-8083-exec-3] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:07:06.887 [http-nio-8083-exec-10] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:09:15.851 [http-nio-8083-exec-4] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:09:15.858 [http-nio-8083-exec-5] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:09:20.000 [http-nio-8083-exec-8] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:09:20.002 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:09:20.009 [http-nio-8083-exec-7] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:09:20.009 [http-nio-8083-exec-6] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:11:20.572 [http-nio-8083-exec-9] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:11:20.581 [http-nio-8083-exec-4] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:18:11.334 [http-nio-8083-exec-4] INFO  c.f.b.controller.ChatController - Starting stream chat for session: session_1752041359714_h4suynq8l with message: 用户描述：摔倒了
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 14:18:20.502 [http-nio-8083-exec-5] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:18:20.508 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:18:20.922 [http-nio-8083-exec-7] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:18:20.928 [http-nio-8083-exec-1] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:21:29.308 [http-nio-8083-exec-2] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 206611 ms. Closing WebSocketServerSockJsSession[id=2pgch0oy].
+2025-07-09 14:28:05.408 [http-nio-8083-exec-5] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 396089 ms. Closing WebSocketServerSockJsSession[id=m1a5tj2k].
+2025-07-09 14:29:14.571 [MessageBroker-4] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[56 current WS(56)-HttpStream(0)-HttpPoll(0), 82 total, 3 closed abnormally (3 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(78)-CONNECTED(78)-DISCONNECT(5)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 378], outboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 109], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 57, completed tasks = 432]
+2025-07-09 14:31:45.799 [http-nio-8083-exec-16] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:31:45.804 [http-nio-8083-exec-12] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:32:15.179 [http-nio-8083-exec-3] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:32:15.181 [http-nio-8083-exec-17] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:32:17.097 [http-nio-8083-exec-24] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:32:17.100 [http-nio-8083-exec-7] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:32:17.675 [http-nio-8083-exec-16] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:32:17.678 [http-nio-8083-exec-12] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:32:29.646 [http-nio-8083-exec-14] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:32:29.648 [http-nio-8083-exec-22] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:32:47.664 [http-nio-8083-exec-13] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 61617 ms. Closing WebSocketServerSockJsSession[id=rizgcv2w].
+2025-07-09 14:39:48.462 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2025-07-09 14:39:48.464 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@55ec3725]]
+2025-07-09 14:39:48.465 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2025-07-09 14:39:48.534 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-09 14:39:48.542 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-09 14:40:02.601 [main] INFO  c.f.backend.BackendApplication - Starting BackendApplication using Java 17.0.15 with PID 36316 (D:\Commonuse\hku\project\project_work\fall_detection_frontend\Fall_Detection-main\Fall_Detection-main\FallDetection-Backend-master\target\classes started by WangJiayi in D:\Commonuse\hku\project\project_work\fall_detection_frontend\Fall_Detection-main\Fall_Detection-main\FallDetection-Backend-master)
+2025-07-09 14:40:02.607 [main] INFO  c.f.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-09 14:40:04.571 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-09 14:40:04.575 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-09 14:40:04.628 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2025-07-09 14:40:05.361 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8083 (http)
+2025-07-09 14:40:05.375 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-07-09 14:40:05.376 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-09 14:40:05.377 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-07-09 14:40:05.535 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-09 14:40:05.536 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2851 ms
+2025-07-09 14:40:07.265 [main] INFO  c.b.m.e.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@52d645b1
+2025-07-09 14:40:07.511 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-07-09 14:40:07.565 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+2025-07-09 14:40:07.579 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8083 (http) with context path ''
+2025-07-09 14:40:07.581 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-07-09 14:40:07.582 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@576c8404]]
+2025-07-09 14:40:07.583 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-07-09 14:40:07.598 [main] INFO  c.f.backend.BackendApplication - Started BackendApplication in 5.617 seconds (process running for 6.155)
+2025-07-09 14:40:16.308 [http-nio-8083-exec-5] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-09 14:40:16.309 [http-nio-8083-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-09 14:40:16.312 [http-nio-8083-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-07-09 14:40:37.194 [http-nio-8083-exec-7] INFO  c.f.b.controller.UserController - 用户登录请求: LoginFormDTO(username=cathy, password=123456)
+2025-07-09 14:40:37.529 [http-nio-8083-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-09 14:40:37.933 [http-nio-8083-exec-7] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@730e5395
+2025-07-09 14:40:37.941 [http-nio-8083-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-09 14:41:07.092 [MessageBroker-3] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 13]
+2025-07-09 14:44:11.543 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 用户登录请求: LoginFormDTO(username=cathy, password=123456)
+2025-07-09 14:44:40.768 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2025-07-09 14:44:40.773 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@576c8404]]
+2025-07-09 14:44:40.773 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2025-07-09 14:44:40.810 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-09 14:44:40.826 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-09 14:44:50.763 [main] INFO  c.f.backend.BackendApplication - Starting BackendApplication using Java 17.0.15 with PID 29808 (D:\Commonuse\hku\project\project_work\fall_detection_frontend\Fall_Detection-main\Fall_Detection-main\FallDetection-Backend-master\target\classes started by WangJiayi in D:\Commonuse\hku\project\project_work\fall_detection_frontend\Fall_Detection-main\Fall_Detection-main\FallDetection-Backend-master)
+2025-07-09 14:44:50.766 [main] INFO  c.f.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-09 14:44:52.339 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-09 14:44:52.344 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-09 14:44:52.396 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 0 Redis repository interfaces.
+2025-07-09 14:44:53.097 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8083 (http)
+2025-07-09 14:44:53.107 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-07-09 14:44:53.107 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-09 14:44:53.109 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-07-09 14:44:53.283 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-09 14:44:53.283 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2450 ms
+2025-07-09 14:44:54.908 [main] INFO  c.b.m.e.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@52d645b1
+2025-07-09 14:44:55.157 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-07-09 14:44:55.208 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+2025-07-09 14:44:55.223 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8083 (http) with context path ''
+2025-07-09 14:44:55.227 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-07-09 14:44:55.229 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@870fdeb]]
+2025-07-09 14:44:55.229 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-07-09 14:44:55.245 [main] INFO  c.f.backend.BackendApplication - Started BackendApplication in 5.086 seconds (process running for 6.038)
+2025-07-09 14:45:45.411 [http-nio-8083-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-09 14:45:45.428 [http-nio-8083-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-09 14:45:45.434 [http-nio-8083-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-07-09 14:45:45.836 [http-nio-8083-exec-1] INFO  c.f.b.controller.UserController - 用户登录请求: LoginFormDTO(username=cathy, password=123456)
+2025-07-09 14:45:46.130 [http-nio-8083-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-09 14:45:46.617 [http-nio-8083-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69cb8047
+2025-07-09 14:45:46.627 [http-nio-8083-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-09 14:45:47.628 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 14:45:47.888 [http-nio-8083-exec-7] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:45:48.081 [http-nio-8083-exec-5] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 14:45:54.699 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-07-09 15:15:54.716 [MessageBroker-5] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[5 current WS(5)-HttpStream(0)-HttpPoll(0), 8 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(7)-CONNECTED(7)-DISCONNECT(1)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 69], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 11], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 6, completed tasks = 713]
+2025-07-09 15:18:43.189 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 15:18:43.189 [http-nio-8083-exec-1] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:18:43.224 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 15:18:43.226 [http-nio-8083-exec-6] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:19:31.444 [http-nio-8083-exec-6] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:19:31.481 [http-nio-8083-exec-2] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:19:49.530 [http-nio-8083-exec-10] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 15:19:49.540 [http-nio-8083-exec-9] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 15:19:50.871 [http-nio-8083-exec-8] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:19:50.893 [http-nio-8083-exec-1] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:19:52.067 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 15:19:52.081 [http-nio-8083-exec-3] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 15:20:07.318 [http-nio-8083-exec-5] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 15:20:07.327 [http-nio-8083-exec-10] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 15:20:09.456 [http-nio-8083-exec-9] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:20:09.472 [http-nio-8083-exec-8] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:20:12.227 [http-nio-8083-exec-2] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 68542 ms. Closing WebSocketServerSockJsSession[id=aomgtbnh].
+2025-07-09 15:20:17.779 [http-nio-8083-exec-1] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:20:17.794 [http-nio-8083-exec-3] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:20:25.571 [http-nio-8083-exec-6] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:20:25.591 [http-nio-8083-exec-2] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:20:30.467 [http-nio-8083-exec-2] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:20:30.506 [http-nio-8083-exec-5] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:28:47.243 [http-nio-8083-exec-1] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 15:45:54.727 [MessageBroker-7] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 15 total, 1 closed abnormally (1 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(11)-CONNECTED(11)-DISCONNECT(4)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 147], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 28], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 3, completed tasks = 1230]
+2025-07-09 15:45:55.269 [http-nio-8083-exec-10] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 1543070 ms. Closing WebSocketServerSockJsSession[id=yhaxjrjh].
+2025-07-09 15:45:55.272 [http-nio-8083-exec-10] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 1528540 ms. Closing WebSocketServerSockJsSession[id=3iojezua].
+2025-07-09 15:46:25.761 [http-nio-8083-exec-10] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 15:46:25.774 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 15:56:44.625 [http-nio-8083-exec-2] INFO  c.f.b.controller.ChatController - Starting stream chat for session: mock-fall-1752047192442 with message: 用户描述：这是模拟的语音转写结果。用户说：我摔倒了，但是我可以站起来，我的右脚踝有点疼。
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 15:56:50.444 [http-nio-8083-exec-8] INFO  c.f.b.controller.ChatController - Starting stream chat for session: mock-fall-1752047192442 with message: 用户描述：这是模拟的语音转写结果。用户说：我摔倒了，但是我可以站起来，我的右脚踝有点疼。
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 15:56:51.594 [http-nio-8083-exec-1] INFO  c.f.b.controller.ChatController - Starting stream chat for session: mock-fall-1752047192442 with message: 用户描述：这是模拟的语音转写结果。用户说：我摔倒了，但是我可以站起来，我的右脚踝有点疼。
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 15:56:51.694 [http-nio-8083-exec-5] INFO  c.f.b.controller.ChatController - Starting stream chat for session: mock-fall-1752047192442 with message: 用户描述：这是模拟的语音转写结果。用户说：我摔倒了，但是我可以站起来，我的右脚踝有点疼。
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 15:56:53.106 [http-nio-8083-exec-4] INFO  c.f.b.controller.ChatController - Starting stream chat for session: mock-fall-1752047192442 with message: 用户描述：这是模拟的语音转写结果。用户说：我摔倒了，但是我可以站起来，我的右脚踝有点疼。
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 15:59:43.582 [http-nio-8083-exec-1] INFO  c.f.b.controller.ChatController - Starting stream chat for session: mock-fall-1752047192442 with message: 用户描述：这是模拟的语音转写结果。用户说：我摔倒了，但是我可以站起来，我的右脚踝有点疼。
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 16:01:26.142 [http-nio-8083-exec-5] INFO  c.f.b.controller.ChatController - Starting stream chat for session: mock-fall-1752047192442 with message: 用户描述：这是模拟的语音转写结果。用户说：我摔倒了，但是我可以站起来，我的右脚踝有点疼。
+
+请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。
+2025-07-09 16:11:32.364 [http-nio-8083-exec-7] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 1506498 ms. Closing WebSocketServerSockJsSession[id=jjecydzg].
+2025-07-09 16:11:32.463 [http-nio-8083-exec-9] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 16:11:32.466 [http-nio-8083-exec-1] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 16:11:34.459 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 16:11:34.480 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-09 16:11:36.066 [http-nio-8083-exec-8] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 16:11:36.066 [http-nio-8083-exec-3] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 16:12:42.258 [http-nio-8083-exec-4] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 64745 ms. Closing WebSocketServerSockJsSession[id=azkjqhxh].
+2025-07-09 16:12:42.337 [http-nio-8083-exec-9] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 16:12:42.337 [http-nio-8083-exec-1] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 16:14:51.460 [http-nio-8083-exec-7] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 97619 ms. Closing WebSocketServerSockJsSession[id=0dbf2j5g].
+2025-07-09 16:14:51.572 [http-nio-8083-exec-2] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 16:14:51.574 [http-nio-8083-exec-9] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-09 16:15:54.735 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[3 current WS(3)-HttpStream(0)-HttpPoll(0), 38 total, 6 closed abnormally (6 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(30)-CONNECTED(30)-DISCONNECT(10)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 387], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 75], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 1928]
