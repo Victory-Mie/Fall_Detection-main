@@ -7,13 +7,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/FallDetection?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
-    # password: holmes96
-    password: 12345
+    password: holmes96
+    # password: 12345
   data:
     redis:
       host: 127.0.0.1
       port: 6379
-      # password: holmes96
+      password: holmes96
       lettuce:
         pool:
           max-active: 10
@@ -45,7 +45,7 @@ qwen:
   max-tokens: 2000
 
 iflytek:
-  appid: your_appid
-  apikey: your_apikey
-  host: your_host
-  secretKey: your_secretKey
+  appid: 72a88d29
+  apikey: f0712c7d093953bf66dcec2e975e3396
+  host: https://iat.cn-huabei-1.xf-yun.com/v1
+  secretKey: MGFkYzI2Yjc3YjBiOTg5NGM0NGI4YzM1
