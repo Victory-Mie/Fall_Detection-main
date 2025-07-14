@@ -51,6 +51,8 @@ const Monitoring = () => {
   // 讯飞语音听写实例
   const xfVoiceRef = useRef<any>(null);
   const timesRef = useRef<any>(null);
+  const [isRecording, setIsRecording] = useState(false);
+  const [isRecordingRequest, setIsRecordingRequest] = useState(false);
 
   // 初始化讯飞听写（只初始化一次）
   useEffect(() => {
@@ -58,7 +60,14 @@ const Monitoring = () => {
       APPID: "24f97b6a",
       APISecret: "ZWQ1MWY0MGRkMzRlY2U1NDc4MmY3MjEw",
       APIKey: "d0f2da9d3b24eb1d50911d2e9b359b77",
-      onWillStatusChange: function (oldStatus, newStatus) {
+      onWillStatusChange: function (oldStatus: string, newStatus: string) {
+        if (newStatus === "ing") {
+          setIsRecording(true);
+          setIsRecordingRequest(false);
+        } else if (newStatus === "end" || newStatus === "init") {
+          setIsRecording(false);
+          setIsRecordingRequest(false);
+        }
         console.log("识别状态：", oldStatus, newStatus);
       },
       onTextChange: function (text: string) {
@@ -109,6 +118,13 @@ const Monitoring = () => {
   // Add a state to store the ID of the current fall event
   const [currentFallId, setCurrentFallId] = useState<string>("");
 
+  // 播放警示音
+  const playAlertSound = () => {
+    console.log("playAlertSound");
+    const audio = new Audio("alert.mp3");
+    audio.play();
+  };
+
   const handleFallDetection = (fallData?: FallData) => {
     const currentTime = Date.now();
     const fallCooldown = 5000; // 减少到5秒冷却时间
@@ -141,6 +157,9 @@ const Monitoring = () => {
     setLastFallTime(currentTime);
     setIsFallDetected(true);
     setIsEmergencyModalVisible(true);
+
+    // 播放警示音
+    playAlertSound();
 
     // If there is fall data, save the fall ID
     if (fallData && fallData.fallId) {
@@ -234,17 +253,6 @@ const Monitoring = () => {
     stopEmergencyCountdown();
     setEmergencyCountdown(0); // 设置为0来隐藏倒计时文字
   };
-
-  // 语音转写回调
-  useEffect(() => {
-    // audioWebSocket.setTranscriptionCallback((text, isLast) => { // This line is removed as per the edit hint
-    //   console.log("语音转写中...", text);
-    //   setUserResponse((prev) => prev + text);
-    //   if (isLast) {
-    //     console.log("语音转写完成");
-    //   }
-    // });
-  }, []);
 
   const handleConfirmOk = () => {
     // 重置所有状态
@@ -420,11 +428,6 @@ const Monitoring = () => {
             <span>Fall detected!</span>
             {emergencyCountdown > 0 && (
               <div style={{ textAlign: "right" }}>
-                {/* <div
-                  style={{ color: emergencyCountdown <= 10 ? "red" : "orange" }}
-                >
-                  Emergency countdown: {emergencyCountdown}s
-                </div> */}
                 {notifyEmergency && (
                   <div>
                     <div>If no action is taken, emergency alert</div>
@@ -436,6 +439,7 @@ const Monitoring = () => {
           </div>
         }
         open={isEmergencyModalVisible}
+        closable={false}
         onOk={async () => {
           // 用户点击"I'm okay"，保存为eventType=1
           stopCountdownAndHide();
@@ -479,16 +483,18 @@ const Monitoring = () => {
               icon={<AudioOutlined />}
               onClick={() => {
                 stopCountdownAndHide();
-                if (xfVoiceRef.current && xfVoiceRef.current.status === "ing") {
-                  xfVoiceRef.current.stop();
+                if (isRecording || isRecordingRequest) {
+                  xfVoiceRef.current && xfVoiceRef.current.stop();
+                  setIsRecordingRequest(false);
                 } else if (xfVoiceRef.current) {
                   setUserResponse("");
                   xfVoiceRef.current.start();
+                  setIsRecordingRequest(true);
                 }
               }}
-              danger={xfVoiceRef.current && xfVoiceRef.current.status === "ing"}
+              danger={isRecording || isRecordingRequest}
             >
-              {xfVoiceRef.current && xfVoiceRef.current.status === "ing"
+              {isRecording || isRecordingRequest
                 ? "Stop Recording"
                 : "Start Voice Description"}
             </Button>
@@ -516,7 +522,7 @@ const Monitoring = () => {
 
                 try {
                   // 构建发送给AI的消息，包含用户描述和上下文
-                  const aiMessage = `用户描述：${userResponse}\n\n请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用中文回答。`;
+                  const aiMessage = `用户描述：${userResponse}\n\n请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用用户使用的语言回答，回答应精简，不要超过100字。`;
 
                   // 使用 streamChat 发送消息到AI
                   await streamChat(

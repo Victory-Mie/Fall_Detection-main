@@ -621,3 +621,68 @@
 2025-07-14 20:47:37.226 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
 2025-07-14 20:49:21.252 [http-nio-8083-exec-8] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
 2025-07-14 20:49:21.286 [http-nio-8083-exec-5] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 21:05:02.887 [http-nio-8083-exec-1] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 21:05:06.464 [http-nio-8083-exec-2] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 21:17:08.917 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
+2025-07-14 21:29:52.635 [http-nio-8083-exec-3] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 21:29:52.644 [http-nio-8083-exec-7] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 21:33:21.086 [http-nio-8083-exec-3] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 21:33:21.110 [http-nio-8083-exec-7] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 21:47:08.990 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 0, completed tasks = 2]
+2025-07-14 21:57:43.157 [http-nio-8083-exec-1] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-14 21:57:43.165 [http-nio-8083-exec-4] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-14 21:59:56.646 [http-nio-8083-exec-8] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-14 21:59:56.647 [http-nio-8083-exec-10] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-14 22:01:55.038 [http-nio-8083-exec-3] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-14 22:01:55.038 [http-nio-8083-exec-2] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-14 22:03:43.832 [http-nio-8083-exec-6] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-14 22:03:43.834 [http-nio-8083-exec-5] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+2025-07-14 22:17:09.032 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 0, completed tasks = 3]
+2025-07-14 22:19:11.335 [http-nio-8083-exec-2] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 22:19:11.335 [http-nio-8083-exec-4] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 22:19:15.354 [http-nio-8083-exec-7] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 请求删除事件id=77
+2025-07-14 22:19:15.355 [http-nio-8083-exec-7] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 当前用户id=1
+2025-07-14 22:19:15.357 [http-nio-8083-exec-7] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 事件userId=1, 当前用户id=1
+2025-07-14 22:19:15.375 [http-nio-8083-exec-7] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 删除结果: true
+2025-07-14 22:19:15.386 [http-nio-8083-exec-8] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 22:19:17.207 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 请求删除事件id=76
+2025-07-14 22:19:17.207 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 当前用户id=1
+2025-07-14 22:19:17.208 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 事件userId=1, 当前用户id=1
+2025-07-14 22:19:17.218 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 删除结果: true
+2025-07-14 22:19:17.229 [http-nio-8083-exec-5] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 22:19:19.545 [http-nio-8083-exec-2] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 请求删除事件id=75
+2025-07-14 22:19:19.545 [http-nio-8083-exec-2] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 当前用户id=1
+2025-07-14 22:19:19.547 [http-nio-8083-exec-2] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 事件userId=1, 当前用户id=1
+2025-07-14 22:19:19.564 [http-nio-8083-exec-2] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 删除结果: true
+2025-07-14 22:19:19.577 [http-nio-8083-exec-7] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 22:19:21.758 [http-nio-8083-exec-8] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 请求删除事件id=74
+2025-07-14 22:19:21.759 [http-nio-8083-exec-8] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 当前用户id=1
+2025-07-14 22:19:21.761 [http-nio-8083-exec-8] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 事件userId=1, 当前用户id=1
+2025-07-14 22:19:21.764 [http-nio-8083-exec-8] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 删除结果: true
+2025-07-14 22:19:21.781 [http-nio-8083-exec-6] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 22:19:23.610 [http-nio-8083-exec-5] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 请求删除事件id=71
+2025-07-14 22:19:23.610 [http-nio-8083-exec-5] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 当前用户id=1
+2025-07-14 22:19:23.612 [http-nio-8083-exec-5] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 事件userId=1, 当前用户id=1
+2025-07-14 22:19:23.627 [http-nio-8083-exec-5] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 删除结果: true
+2025-07-14 22:19:23.643 [http-nio-8083-exec-2] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 22:19:25.921 [http-nio-8083-exec-7] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 请求删除事件id=67
+2025-07-14 22:19:25.921 [http-nio-8083-exec-7] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 当前用户id=1
+2025-07-14 22:19:25.923 [http-nio-8083-exec-7] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 事件userId=1, 当前用户id=1
+2025-07-14 22:19:25.932 [http-nio-8083-exec-7] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 删除结果: true
+2025-07-14 22:19:25.943 [http-nio-8083-exec-8] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 22:19:28.845 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 请求删除事件id=78
+2025-07-14 22:19:28.846 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 当前用户id=1
+2025-07-14 22:19:28.848 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 事件userId=1, 当前用户id=1
+2025-07-14 22:19:28.862 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 删除结果: true
+2025-07-14 22:19:28.871 [http-nio-8083-exec-5] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 22:19:30.339 [http-nio-8083-exec-2] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 请求删除事件id=73
+2025-07-14 22:19:30.339 [http-nio-8083-exec-2] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 当前用户id=1
+2025-07-14 22:19:30.341 [http-nio-8083-exec-2] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 事件userId=1, 当前用户id=1
+2025-07-14 22:19:30.355 [http-nio-8083-exec-2] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 删除结果: true
+2025-07-14 22:19:30.368 [http-nio-8083-exec-7] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
+2025-07-14 22:19:32.056 [http-nio-8083-exec-8] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=5, size=10
+2025-07-14 22:19:34.058 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 请求删除事件id=12
+2025-07-14 22:19:34.058 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 当前用户id=1
+2025-07-14 22:19:34.061 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 事件userId=1, 当前用户id=1
+2025-07-14 22:19:34.065 [http-nio-8083-exec-6] INFO  c.f.b.service.impl.EventServiceImpl - [deleteEvent] 删除结果: true
+2025-07-14 22:19:34.075 [http-nio-8083-exec-5] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=5, size=10
