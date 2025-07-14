@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2025-07-14 11:05:27.574 [MessageBroker-4] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 60 total, 18 closed abnormally (18 connect failure, 0 send limit, 2 transport error)], stompSubProtocol[processed CONNECT(33)-CONNECTED(33)-DISCONNECT(27)], stompBrokerRelay[null], inboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 534], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 120], sockJsScheduler[pool size = 8, active threads = 3, queued tasks = 0, completed tasks = 3483]
 2025-07-14 11:06:54.247 [http-nio-8083-exec-4] INFO  c.f.b.controller.EventController - 获取事件列表请求: page=1, size=10
 2025-07-14 11:06:54.249 [http-nio-8083-exec-6] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
@@ -85,3 +86,102 @@
 2025-07-14 13:24:40.615 [http-nio-8083-exec-44] INFO  o.s.w.s.m.SubProtocolWebSocketHandler - No messages received after 141722 ms. Closing WebSocketServerSockJsSession[id=chqq5vgk].
 2025-07-14 13:27:50.863 [http-nio-8083-exec-89] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
 2025-07-14 13:27:50.863 [http-nio-8083-exec-76] INFO  c.f.b.controller.UserController - 获取当前用户信息请求
+=======
+2025-07-13 13:30:31.108 [main] INFO  c.f.backend.BackendApplication - Starting BackendApplication using Java 17.0.12 with PID 10875 (/Users/Frailty/Desktop/code/java/RemotePull/Fall_Detection-main/FallDetection-Backend-master/target/classes started by Frailty in /Users/Frailty/Desktop/code/java/RemotePull/Fall_Detection-main/FallDetection-Backend-master)
+2025-07-13 13:30:31.110 [main] INFO  c.f.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-13 13:30:31.614 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-13 13:30:31.615 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-13 13:30:31.626 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-07-13 13:30:31.834 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8083 (http)
+2025-07-13 13:30:31.838 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-07-13 13:30:31.838 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-13 13:30:31.838 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-07-13 13:30:31.872 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-13 13:30:31.872 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 749 ms
+2025-07-13 13:30:32.460 [main] INFO  c.b.m.e.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3383649e
+2025-07-13 13:30:32.576 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-07-13 13:30:32.597 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+2025-07-13 13:30:32.602 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8083 (http) with context path ''
+2025-07-13 13:30:32.602 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-07-13 13:30:32.602 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2f2dccfe]]
+2025-07-13 13:30:32.602 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-07-13 13:30:32.609 [main] INFO  c.f.backend.BackendApplication - Started BackendApplication in 1.744 seconds (process running for 1.974)
+2025-07-13 13:30:33.130 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-13 13:30:33.130 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-13 13:30:33.130 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-13 13:30:33.132 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-07-13 13:30:33.206 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@16f2bd7e
+2025-07-13 13:30:33.209 [RMI TCP Connection(1)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-13 13:31:32.403 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-07-13 13:32:23.456 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2025-07-13 13:32:23.457 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2f2dccfe]]
+2025-07-13 13:32:23.457 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2025-07-13 13:32:24.490 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-13 13:32:24.496 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-13 13:32:25.719 [main] INFO  c.f.backend.BackendApplication - Starting BackendApplication using Java 17.0.12 with PID 11204 (/Users/Frailty/Desktop/code/java/RemotePull/Fall_Detection-main/FallDetection-Backend-master/target/classes started by Frailty in /Users/Frailty/Desktop/code/java/RemotePull/Fall_Detection-main/FallDetection-Backend-master)
+2025-07-13 13:32:25.720 [main] INFO  c.f.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-13 13:32:26.201 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-13 13:32:26.202 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-13 13:32:26.214 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-07-13 13:32:26.428 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8083 (http)
+2025-07-13 13:32:26.433 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-07-13 13:32:26.433 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-13 13:32:26.433 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-07-13 13:32:26.462 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-13 13:32:26.462 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 726 ms
+2025-07-13 13:32:27.002 [main] INFO  c.b.m.e.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@533377b
+2025-07-13 13:32:27.119 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-07-13 13:32:27.139 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+2025-07-13 13:32:27.153 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8083 (http) with context path ''
+2025-07-13 13:32:27.153 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-07-13 13:32:27.154 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@44946563]]
+2025-07-13 13:32:27.154 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-07-13 13:32:27.160 [main] INFO  c.f.backend.BackendApplication - Started BackendApplication in 1.613 seconds (process running for 1.828)
+2025-07-13 13:32:27.479 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-13 13:32:27.479 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-13 13:32:27.479 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-13 13:32:27.480 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-13 13:32:27.538 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d3e3091
+2025-07-13 13:32:27.540 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-13 13:32:30.687 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2025-07-13 13:32:30.687 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@44946563]]
+2025-07-13 13:32:30.687 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2025-07-13 13:32:31.719 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-13 13:32:31.724 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-13 13:34:38.005 [main] INFO  c.f.backend.BackendApplicationTests - Starting BackendApplicationTests using Java 17.0.12 with PID 11502 (started by Frailty in /Users/Frailty/Desktop/code/java/RemotePull/Fall_Detection-main/FallDetection-Backend-master)
+2025-07-13 13:34:38.007 [main] INFO  c.f.backend.BackendApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-07-13 13:34:38.606 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-13 13:34:38.607 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-13 13:34:38.620 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-07-13 13:34:39.445 [main] INFO  c.b.m.e.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@7de4a01f
+2025-07-13 13:34:39.540 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-07-13 13:34:39.557 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-07-13 13:34:39.557 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@56989d83]]
+2025-07-13 13:34:39.558 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-07-13 13:34:39.566 [main] INFO  c.f.backend.BackendApplicationTests - Started BackendApplicationTests in 1.704 seconds (process running for 2.032)
+2025-07-13 13:34:39.741 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2025-07-13 13:34:39.741 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@56989d83]]
+2025-07-13 13:34:39.741 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2025-07-13 13:38:51.473 [main] INFO  c.f.backend.BackendApplication - Starting BackendApplication v0.0.1-SNAPSHOT using Java 17.0.12 with PID 12143 (/Users/Frailty/Desktop/code/java/RemotePull/Fall_Detection-main/FallDetection-Backend-master/target/backend-0.0.1-SNAPSHOT.jar started by Frailty in /Users/Frailty/Desktop/code/java/RemotePull/Fall_Detection-main/FallDetection-Backend-master)
+2025-07-13 13:38:51.476 [main] INFO  c.f.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-13 13:38:52.039 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-13 13:38:52.041 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-13 13:38:52.056 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2025-07-13 13:38:52.352 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8083 (http)
+2025-07-13 13:38:52.357 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-07-13 13:38:52.358 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-13 13:38:52.358 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-07-13 13:38:52.395 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-13 13:38:52.395 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 892 ms
+2025-07-13 13:38:53.159 [main] INFO  c.b.m.e.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3427b02d
+2025-07-13 13:38:53.258 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-07-13 13:38:53.281 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+2025-07-13 13:38:53.292 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8083 (http) with context path ''
+2025-07-13 13:38:53.292 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-07-13 13:38:53.293 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3cf4a2bf]]
+2025-07-13 13:38:53.293 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-07-13 13:38:53.302 [main] INFO  c.f.backend.BackendApplication - Started BackendApplication in 2.052 seconds (process running for 2.255)
+2025-07-13 13:38:57.323 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2025-07-13 13:38:57.324 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3cf4a2bf]]
+2025-07-13 13:38:57.325 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+>>>>>>> 0e302a9d79b60d048e8637d9d3c5974d6e9e6d68
