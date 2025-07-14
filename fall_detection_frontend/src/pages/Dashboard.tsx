@@ -33,40 +33,24 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
-    const fetchEvents = async () => {
+    const fetchStats = async () => {
       try {
         setLoading(true);
-        console.log("!!!!!user", user);
-        const response = await fallApi.getEvents(user?.id as number);
-        console.log("!!!!!response", response.data);
-        // setEvents(response.data.data);
-
-        // Calculate statistics
-        const total = response.data.data.length;
-        const confirmed = response.data.data.filter(
-          (event: EventData) => event.eventType === 0
-        ).length;
-        const falseAlarm = response.data.data.filter(
-          (event: EventData) => event.eventType === 1
-        ).length;
-        const emergency = response.data.data.filter(
-          (event: EventData) => event.eventType === 2
-        ).length;
-
+        const response = await fallApi.getEventStats();
+        const statsData = response.data?.data || {};
         setStats({
-          total,
-          confirmed,
-          falseAlarm,
-          emergency,
+          total: statsData.total || 0,
+          confirmed: statsData.confirmed || 0,
+          falseAlarm: statsData.falseAlarm || 0,
+          emergency: statsData.emergency || 0,
         });
       } catch (error) {
-        console.error("Failed to fetch fall events:", error);
+        console.error("Failed to fetch event stats:", error);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchEvents();
+    fetchStats();
   }, []);
 
   // Pie chart data

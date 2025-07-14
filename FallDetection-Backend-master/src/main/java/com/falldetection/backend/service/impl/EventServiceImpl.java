@@ -125,4 +125,56 @@ public class EventServiceImpl extends ServiceImpl<EventMapper, Event> implements
             return Result.fail("保存事件失败");
         }
     }
+
+    @Override
+    public Result deleteEvent(Long id) {
+        log.info("[deleteEvent] 请求删除事件id={}", id);
+        UserDTO user = UserHolder.getUser();
+        if (user == null) {
+            log.warn("[deleteEvent] 用户未登录");
+            return Result.fail("用户未登录");
+        }
+        log.info("[deleteEvent] 当前用户id={}", user.getId());
+        Event event = getById(id);
+        if (event == null) {
+            log.warn("[deleteEvent] 事件id={} 不存在", id);
+            return Result.fail("事件不存在");
+        }
+        log.info("[deleteEvent] 事件userId={}, 当前用户id={}", event.getUserId(), user.getId());
+        if (!event.getUserId().equals(user.getId())) {
+            log.warn("[deleteEvent] 用户无权删除该事件: 事件userId={}, 当前用户id={}", event.getUserId(), user.getId());
+            return Result.fail("无权删除该事件");
+        }
+        boolean success = removeById(id);
+        log.info("[deleteEvent] 删除结果: {}", success);
+        if (success) {
+            return Result.ok();
+        } else {
+            return Result.fail("删除失败");
+        }
+    }
+
+    @Override
+    public Result getEventStats() {
+        UserDTO user = UserHolder.getUser();
+        if (user == null) {
+            return Result.fail("用户未登录");
+        }
+        QueryWrapper<Event> wrapper = new QueryWrapper<>();
+        wrapper.eq("user_id", user.getId());
+        List<Event> events = list(wrapper);
+
+        long total = events.size();
+        long confirmed = events.stream().filter(e -> e.getEventType() == 0).count();
+        long falseAlarm = events.stream().filter(e -> e.getEventType() == 1).count();
+        long emergency = events.stream().filter(e -> e.getEventType() == 2).count();
+
+        HashMap<String, Long> stats = new HashMap<>();
+        stats.put("total", total);
+        stats.put("confirmed", confirmed);
+        stats.put("falseAlarm", falseAlarm);
+        stats.put("emergency", emergency);
+
+        return Result.ok(stats);
+    }
 }

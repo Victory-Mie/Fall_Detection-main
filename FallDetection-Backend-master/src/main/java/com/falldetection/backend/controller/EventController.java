@@ -25,11 +25,10 @@ public class EventController {
      */
     @GetMapping("/list")
     public Result getEventList(@RequestParam(defaultValue = "1") Integer page,
-                               @RequestParam(defaultValue = "5") Integer size) {
+            @RequestParam(defaultValue = "5") Integer size) {
         log.info("获取事件列表请求: page={}, size={}", page, size);
         return eventService.getEventList(page, size);
     }
-
 
     @PostMapping("/save")
     public Result saveEvent(@RequestBody SaveRequest saveRequest) {
@@ -38,4 +37,13 @@ public class EventController {
         return eventService.saveEvent(sessionId, eventType);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public Result deleteEvent(@PathVariable("id") Long id) {
+        return eventService.deleteEvent(id);
+    }
+
+    @GetMapping("/stats")
+    public Result getEventStats() {
+        return eventService.getEventStats();
+    }
 }

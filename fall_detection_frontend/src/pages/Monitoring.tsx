@@ -13,9 +13,9 @@ import {
 } from "antd";
 import { useThemeStore } from "../store/themeStore";
 import { AudioOutlined, VideoCameraOutlined } from "@ant-design/icons";
-import { pythonWebSocket, audioWebSocket } from "../services/websocket";
+import { pythonWebSocket } from "../services/websocket";
 import { fallApi, streamChat } from "../services/api";
-import { audioRecorderService } from "../services/audioService";
+import { XfVoiceDictation } from "@muguilin/xf-voice-dictation";
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -48,19 +48,44 @@ const Monitoring = () => {
   const isEmergencyHandlingRef = useRef<boolean>(false);
   const { notifyEmergency } = useThemeStore();
 
+  // 讯飞语音听写实例
+  const xfVoiceRef = useRef<any>(null);
+  const timesRef = useRef<any>(null);
+
+  // 初始化讯飞听写（只初始化一次）
+  useEffect(() => {
+    xfVoiceRef.current = new XfVoiceDictation({
+      APPID: "24f97b6a",
+      APISecret: "ZWQ1MWY0MGRkMzRlY2U1NDc4MmY3MjEw",
+      APIKey: "d0f2da9d3b24eb1d50911d2e9b359b77",
+      onWillStatusChange: function (oldStatus, newStatus) {
+        console.log("识别状态：", oldStatus, newStatus);
+      },
+      onTextChange: function (text: string) {
+        setUserResponse(text);
+        if (text) {
+          clearTimeout(timesRef.current);
+          timesRef.current = setTimeout(() => {
+            xfVoiceRef.current && xfVoiceRef.current.stop();
+          }, 3000);
+        }
+      },
+      onError: function (error: any) {
+        message.error("讯飞语音识别错误: " + error.message || error);
+        console.log("错误信息：", error);
+      },
+    });
+    return () => {
+      if (xfVoiceRef.current) xfVoiceRef.current.stop();
+      clearTimeout(timesRef.current);
+    };
+  }, []);
+
   // Connect to Python WebSocket service
   useEffect(() => {
-    // 连接到 Python 后端的 WebSocket
     pythonWebSocket.connect();
-
-    // 设置摔倒检测回调
     pythonWebSocket.setFallDetectionCallback((fallData) => {
-      // 防止重复触发
-      if (isFallDetected) {
-        return;
-      }
-
-      // 触发摔倒检测处理
+      if (isFallDetected) return;
       handleFallDetection({
         isFallDetected: true,
         confidence: fallData.confidence,
@@ -68,39 +93,12 @@ const Monitoring = () => {
         fallId: fallData.fall_id,
       });
     });
-
-    // 延迟启动检测，确保连接稳定
     setTimeout(() => {
       pythonWebSocket.startDetection();
       message.info("摔倒检测已启动");
     }, 2000);
-
-    // 连接到 Java 后端的音频 WebSocket
-    const connectAudioWebSocket = async () => {
-      try {
-        await audioWebSocket.connect();
-
-        // 设置音频转写结果回调
-        audioWebSocket.setTranscriptionCallback((text, isLast) => {
-          setUserResponse((prev) => prev + text);
-          if (isLast) {
-            message.success("语音转写完成");
-          }
-        });
-
-        message.success("音频服务连接成功");
-      } catch (error) {
-        console.error("Failed to connect to audio WebSocket:", error);
-        message.error("音频服务连接失败，将使用模拟转写功能");
-      }
-    };
-
-    connectAudioWebSocket();
-
-    // Cleanup function
     return () => {
       pythonWebSocket.disconnect();
-      audioWebSocket.disconnect();
       if (emergencyTimerRef.current) {
         clearInterval(emergencyTimerRef.current);
         emergencyTimerRef.current = null;
@@ -155,7 +153,7 @@ const Monitoring = () => {
     }
 
     // Start 60-second emergency countdown
-    setEmergencyCountdown(10);
+    setEmergencyCountdown(60);
     emergencyTimerRef.current = window.setInterval(() => {
       setEmergencyCountdown((prev) => {
         if (prev <= 1) {
@@ -237,49 +235,16 @@ const Monitoring = () => {
     setEmergencyCountdown(0); // 设置为0来隐藏倒计时文字
   };
 
-  // 录音相关函数
-  const handleStartRecording = async () => {
-    try {
-      // 设置转录更新回调
-      audioRecorderService.onTranscriptionUpdate((text) => {
-        setUserResponse(text);
-      });
-
-      // 设置录音完成回调
-      audioRecorderService.onRecordingComplete(() => {
-        setIsAssessing(true);
-
-        // 等待一段时间让最后的音频片段处理完成
-        setTimeout(() => {
-          setIsAssessing(false);
-          if (!userResponse.trim()) {
-            // 如果没有转写结果，提供模拟结果
-            setUserResponse(
-              "这是模拟的语音转写结果。用户说：我摔倒了，但是我可以站起来，我的右脚踝有点疼。"
-            );
-            message.warning("使用模拟转写结果");
-          }
-        }, 2000);
-      });
-
-      await audioRecorderService.startRecording();
-      setUserResponse(""); // 清空之前的转写结果
-      message.info("开始录音...");
-    } catch (error) {
-      console.error("Failed to start recording:", error);
-      message.error(
-        "Failed to start recording. Please check the permission settings"
-      );
-    }
-  };
-
-  const handleStopRecording = async () => {
-    try {
-      await audioRecorderService.stopRecording();
-    } catch (error) {
-      console.error("Failed to stop recording:", error);
-    }
-  };
+  // 语音转写回调
+  useEffect(() => {
+    // audioWebSocket.setTranscriptionCallback((text, isLast) => { // This line is removed as per the edit hint
+    //   console.log("语音转写中...", text);
+    //   setUserResponse((prev) => prev + text);
+    //   if (isLast) {
+    //     console.log("语音转写完成");
+    //   }
+    // });
+  }, []);
 
   const handleConfirmOk = () => {
     // 重置所有状态
@@ -299,7 +264,7 @@ const Monitoring = () => {
     }
 
     // 清理录音服务
-    audioRecorderService.cleanup();
+    // audioRecorderService.cleanup(); // This line is removed as per the edit hint
   };
 
   return (
@@ -421,8 +386,6 @@ const Monitoring = () => {
                   message.info(
                     `Python: ${
                       pythonWebSocket.isConnected ? "Connected" : "Disconnected"
-                    }, Audio: ${
-                      audioWebSocket.isConnected ? "Connected" : "Disconnected"
                     }`
                   );
                 }}
@@ -515,17 +478,17 @@ const Monitoring = () => {
               type="primary"
               icon={<AudioOutlined />}
               onClick={() => {
-                // 停止60秒倒计时
                 stopCountdownAndHide();
-                if (audioRecorderService.isRecording) {
-                  handleStopRecording();
-                } else {
-                  handleStartRecording();
+                if (xfVoiceRef.current && xfVoiceRef.current.status === "ing") {
+                  xfVoiceRef.current.stop();
+                } else if (xfVoiceRef.current) {
+                  setUserResponse("");
+                  xfVoiceRef.current.start();
                 }
               }}
-              danger={audioRecorderService.isRecording}
+              danger={xfVoiceRef.current && xfVoiceRef.current.status === "ing"}
             >
-              {audioRecorderService.isRecording
+              {xfVoiceRef.current && xfVoiceRef.current.status === "ing"
                 ? "Stop Recording"
                 : "Start Voice Description"}
             </Button>

@@ -56,8 +56,8 @@ const History = () => {
         pageSize
       );
       // 兼容后端返回结构 { records, total }
-      const { data: records = [], total = 0 } = response.data || {};
-      console.log("response:", response.data);
+      const { records = [], total = 0 } = response.data?.data || {};
+      console.log("response:", response.data.data);
       setData(records);
       setPagination({ current: page, pageSize, total });
       console.log("records:", records);
@@ -90,7 +90,15 @@ const History = () => {
       onOk: async () => {
         try {
           await fallApi.deleteEvent(id.toString());
-          setData(data.filter((item) => item.id !== id));
+          // 删除后判断是否需要跳到上一页
+          // 如果当前页只剩一条且不是第一页，删除后自动跳到上一页，否则保持当前页
+          const isLastItemOnPage = data.length === 1;
+          const isNotFirstPage = pagination.current > 1;
+          const nextPage =
+            isLastItemOnPage && isNotFirstPage
+              ? pagination.current - 1
+              : pagination.current;
+          fetchData(nextPage, pagination.pageSize);
         } catch (error) {
           console.error("Failed to delete the record:", error);
         }

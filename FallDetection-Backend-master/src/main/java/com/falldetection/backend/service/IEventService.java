@@ -9,5 +9,10 @@ import com.falldetection.backend.entity.Event;
 
 public interface IEventService extends IService<Event> {
     Result getEventList(Integer page, Integer size);
+
     Result saveEvent(String sessionId, Integer eventType);
+
+    Result deleteEvent(Long id);
+
+    Result getEventStats();
 }

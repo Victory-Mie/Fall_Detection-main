@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@muguilin/xf-voice-dictation": "^1.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recorder-core": "^1.3.25011100"
+  }
+}

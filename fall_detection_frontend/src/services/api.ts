@@ -70,25 +70,6 @@ interface UserData {
   [key: string]: string | undefined;
 }
 
-interface EventParams {
-  user_id: number;
-  page: number;
-  size: number;
-  startDate?: string;
-  endDate?: string;
-}
-
-interface Settings {
-  sensitivity?: string;
-  autoRecord?: boolean;
-  notifyEmergency?: boolean;
-  notificationMethod?: string[];
-  dataRetentionPeriod?: string;
-  recordingStorage?: string;
-  theme?: string;
-  [key: string]: string | boolean | string[] | undefined;
-}
-
 // 用户相关API
 export const userApi = {
   // 登录
@@ -120,7 +101,7 @@ export const userApi = {
 export const fallApi = {
   // 获取跌倒事件列表
   getEvents: async (user_id: number, page = 1, size = 10, dateRange?: [string, string]) => {
-    const params: any = { user_id, page, size };
+    const params: Record<string, unknown> = { user_id, page, size };
     if (dateRange) {
       params.startDate = dateRange[0];
       params.endDate = dateRange[1];
@@ -143,12 +124,17 @@ export const fallApi = {
 
   // 删除跌倒事件
   deleteEvent: async (id: string) => {
-    return api.delete(`/event/${id}`);
+    return api.delete(`/event/delete/${id}`);
   },
 
   // 更新跌倒事件状态
   updateEventStatus: async (id: string, status: FallEvent['status']) => {
     return api.patch(`/event/${id}/status`, { status });
+  },
+
+  // 获取事件统计数据
+  getEventStats: async () => {
+    return api.get('/event/stats');
   },
 };
 
@@ -437,7 +423,7 @@ export const settingsApi = {
   },
 
   // 更新设置
-  updateSettings: async (settings: Settings) => {
+  updateSettings: async (settings: any) => { // Changed from Settings to any to match new_code
     // 调用 Java 后端真实 API
     // return api.put('/settings', settings);
     
