@@ -49,6 +49,12 @@ const Monitoring = () => {
   const isEmergencyHandlingRef = useRef<boolean>(false);
   const { notifyEmergency } = useThemeStore();
   const [imageUrl, setImageUrl] = useState<string>("");
+  const [cameraStatus, setCameraStatus] = useState<
+    "Connected" | "Disconnected"
+  >("Connected");
+  const [micStatus, setMicStatus] = useState<"Connected" | "Disconnected">(
+    "Disconnected"
+  );
 
   // 讯飞语音听写实例
   const xfVoiceRef = useRef<any>(null);
@@ -70,7 +76,7 @@ const Monitoring = () => {
           setIsRecording(false);
           setIsRecordingRequest(false);
         }
-        console.log("识别状态：", oldStatus, newStatus);
+        console.log("Recognition status:", oldStatus, newStatus);
       },
       onTextChange: function (text: string) {
         setUserResponse(text);
@@ -82,8 +88,10 @@ const Monitoring = () => {
         }
       },
       onError: function (error: any) {
-        message.error("讯飞语音识别错误: " + error.message || error);
-        console.log("错误信息：", error);
+        message.error(
+          "iFlytek speech recognition error: " + error.message || error
+        );
+        console.log("Error info:", error);
       },
     });
     return () => {
@@ -113,7 +121,7 @@ const Monitoring = () => {
     });
     setTimeout(() => {
       pythonWebSocket.startDetection();
-      message.info("摔倒检测已启动");
+      message.info("Fall detection has been started");
     }, 2000);
     return () => {
       pythonWebSocket.disconnect();
@@ -216,7 +224,7 @@ const Monitoring = () => {
     try {
       // 保存为紧急事件 (eventType = 2 for emergency)
       await saveEvent(2);
-      message.error("紧急跌倒事件发生，已上报联系人");
+      message.error("Emergency fall event occurred, contact has been notified");
 
       // 重置所有状态
       setIsEmergencyModalVisible(false);
@@ -234,8 +242,8 @@ const Monitoring = () => {
         emergencyTimerRef.current = null;
       }
     } catch (error) {
-      console.error("保存紧急事件失败:", error);
-      message.error("保存事件失败");
+      console.error("Failed to save emergency event:", error);
+      message.error("Failed to save event");
       // 确保在错误情况下也重置标志
       isEmergencyHandlingRef.current = false;
     }
@@ -249,10 +257,10 @@ const Monitoring = () => {
         eventType,
         imageUrl // 新增：传递图片URL
       );
-      message.success("事件已保存");
+      message.success("Event saved");
     } catch (error) {
-      console.error("保存事件失败:", error);
-      message.error("保存事件失败");
+      console.error("Failed to save event:", error);
+      message.error("Failed to save event");
     }
   };
 
@@ -291,8 +299,15 @@ const Monitoring = () => {
     // audioRecorderService.cleanup(); // This line is removed as per the edit hint
   };
 
+  useEffect(() => {
+    navigator.mediaDevices
+      .getUserMedia({ audio: true })
+      .then(() => setMicStatus("Connected"))
+      .catch(() => setMicStatus("Disconnected"));
+  }, []);
+
   return (
-    <div>
+    <div style={{ minHeight: "100vh" }}>
       <Title level={2}>Real-time Monitoring</Title>
 
       {isFallDetected && (
@@ -321,6 +336,8 @@ const Monitoring = () => {
                 src="http://localhost:5000/video_feed"
                 alt="Camera feed"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                onLoad={() => setCameraStatus("Connected")}
+                onError={() => setCameraStatus("Disconnected")}
               />
               {isFallDetected && (
                 <div
@@ -350,10 +367,10 @@ const Monitoring = () => {
               {isFallDetected ? "Fall detected!" : "Normal"}
             </p>
             <p>
-              <strong>Camera:</strong> Connected
+              <strong>Camera:</strong> {cameraStatus}
             </p>
             <p>
-              <strong>Microphone:</strong> Connected
+              <strong>Microphone:</strong> {micStatus}
             </p>
             <p>
               <strong>AI Analysis:</strong> Enabled
@@ -538,7 +555,7 @@ const Monitoring = () => {
 
                 try {
                   // 构建发送给AI的消息，包含用户描述和上下文
-                  const aiMessage = `用户描述：${userResponse}\n\n请根据用户的描述分析其受伤情况，并提供相应的建议和注意事项。请用用户使用的语言回答，回答应精简，不要超过100字。`;
+                  const aiMessage = `User description: ${userResponse}\n\nPlease analyze the user's injury based on the description and provide relevant advice and precautions. Please answer in the user's language, keep the answer concise, and do not exceed 100 words.`;
 
                   // 使用 streamChat 发送消息到AI
                   await streamChat(
@@ -549,23 +566,27 @@ const Monitoring = () => {
                       setAiResponse((prev) => prev + token);
                     },
                     () => {
-                      // AI响应完成
+                      // AI response completed
                       setIsAssessing(false);
-                      message.success("AI分析完成");
+                      message.success("AI analysis completed");
                     },
                     (error: string) => {
-                      // 处理错误
-                      console.error("AI分析失败:", error);
-                      setAiResponse("AI分析服务暂时不可用，请稍后重试。");
+                      // Handle error
+                      console.error("AI analysis failed:", error);
+                      setAiResponse(
+                        "AI analysis service is temporarily unavailable, please try again later."
+                      );
                       setIsAssessing(false);
-                      message.error("AI分析失败");
+                      message.error("AI analysis failed");
                     }
                   );
                 } catch (error) {
-                  console.error("发送消息到AI失败:", error);
-                  setAiResponse("AI分析服务暂时不可用，请稍后重试。");
+                  console.error("Failed to send message to AI:", error);
+                  setAiResponse(
+                    "AI analysis service is temporarily unavailable, please try again later."
+                  );
                   setIsAssessing(false);
-                  message.error("AI分析失败");
+                  message.error("AI analysis failed");
                 }
               }}
             >

@@ -65,7 +65,7 @@ const MainLayout = () => {
     {
       key: "/nearby-hospitals",
       icon: <SettingOutlined />,
-      label: "医院检索",
+      label: "Nearby Hospitals",
     },
     {
       key: "/profile",

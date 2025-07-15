@@ -171,7 +171,7 @@ const NearbyHospitals = () => {
   // };
 
   return (
-    <div>
+    <div style={{ minHeight: "100vh" }}>
       <Title level={2}>Hospital Search</Title>
       <Card style={{ marginBottom: 16 }}>
         <AutoComplete

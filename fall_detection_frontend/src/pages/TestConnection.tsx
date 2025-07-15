@@ -13,10 +13,10 @@ const TestConnection: React.FC = () => {
     try {
       const response = await userApi.login("testuser", "testpass");
       setResults((prev) => ({ ...prev, login: response.data }));
-      message.success("登录测试成功");
+      message.success("Login test successful");
     } catch (error: any) {
       setResults((prev) => ({ ...prev, login: { error: error.message } }));
-      message.error(`登录测试失败: ${error.message}`);
+      message.error(`Login test failed: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -31,10 +31,10 @@ const TestConnection: React.FC = () => {
         "newpass"
       );
       setResults((prev) => ({ ...prev, register: response.data }));
-      message.success("注册测试成功");
+      message.success("Registration test successful");
     } catch (error: any) {
       setResults((prev) => ({ ...prev, register: { error: error.message } }));
-      message.error(`注册测试失败: ${error.message}`);
+      message.error(`Registration test failed: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -45,10 +45,10 @@ const TestConnection: React.FC = () => {
     try {
       const response = await userApi.getUserInfo();
       setResults((prev) => ({ ...prev, userInfo: response.data }));
-      message.success("获取用户信息测试成功");
+      message.success("Get user info test successful");
     } catch (error: any) {
       setResults((prev) => ({ ...prev, userInfo: { error: error.message } }));
-      message.error(`获取用户信息测试失败: ${error.message}`);
+      message.error(`Get user info test failed: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -59,10 +59,10 @@ const TestConnection: React.FC = () => {
     try {
       const response = await fallApi.getEvents();
       setResults((prev) => ({ ...prev, events: response.data }));
-      message.success("获取事件列表测试成功");
+      message.success("Get event list test successful");
     } catch (error: any) {
       setResults((prev) => ({ ...prev, events: { error: error.message } }));
-      message.error(`获取事件列表测试失败: ${error.message}`);
+      message.error(`Get event list test failed: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -73,13 +73,13 @@ const TestConnection: React.FC = () => {
     try {
       const response = await chatApi.getHistory("test-session");
       setResults((prev) => ({ ...prev, chatHistory: response.data }));
-      message.success("获取聊天历史测试成功");
+      message.success("Get chat history test successful");
     } catch (error: any) {
       setResults((prev) => ({
         ...prev,
         chatHistory: { error: error.message },
       }));
-      message.error(`获取聊天历史测试失败: ${error.message}`);
+      message.error(`Get chat history test failed: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -90,10 +90,10 @@ const TestConnection: React.FC = () => {
     try {
       const response = await audioApi.processAudio("test-audio-data", "wav");
       setResults((prev) => ({ ...prev, audio: response.data }));
-      message.success("音频处理测试成功");
+      message.success("Audio process test successful");
     } catch (error: any) {
       setResults((prev) => ({ ...prev, audio: { error: error.message } }));
-      message.error(`音频处理测试失败: ${error.message}`);
+      message.error(`Audio process test failed: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -101,35 +101,35 @@ const TestConnection: React.FC = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <Title level={2}>Java 后端连接测试</Title>
-      <Text type="secondary">测试前端与 Java Spring Boot 后端的连接</Text>
+      <Title level={2}>Java Backend Connection Test</Title>
+      <Text type="secondary">Test frontend connection to Java Spring Boot backend</Text>
 
-      <Card title="API 测试" style={{ marginTop: "20px" }}>
+      <Card title="API Test" style={{ marginTop: "20px" }}>
         <Space direction="vertical" style={{ width: "100%" }}>
           <Space wrap>
             <Button type="primary" onClick={testUserLogin} loading={loading}>
-              测试用户登录
+              Test User Login
             </Button>
             <Button type="primary" onClick={testUserRegister} loading={loading}>
-              测试用户注册
+              Test User Registration
             </Button>
             <Button type="primary" onClick={testGetUserInfo} loading={loading}>
-              测试获取用户信息
+              Test Get User Info
             </Button>
             <Button type="primary" onClick={testGetEvents} loading={loading}>
-              测试获取事件列表
+              Test Get Event List
             </Button>
             <Button type="primary" onClick={testChatHistory} loading={loading}>
-              测试获取聊天历史
+              Test Get Chat History
             </Button>
             <Button type="primary" onClick={testAudioProcess} loading={loading}>
-              测试音频处理
+              Test Audio Processing
             </Button>
           </Space>
         </Space>
       </Card>
 
-      <Card title="测试结果" style={{ marginTop: "20px" }}>
+      <Card title="Test Results" style={{ marginTop: "20px" }}>
         <pre
           style={{
             background: "#f5f5f5",
