@@ -41,7 +41,8 @@ const Register = () => {
         navigate("/login");
       } else {
         message.error(
-          response.data.message ||
+          response.data.errorMsg ||
+            response.data.message ||
             "Registration failed. Please try again later."
         );
       }

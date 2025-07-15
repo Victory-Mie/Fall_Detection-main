@@ -16,6 +16,7 @@ import { AudioOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import { pythonWebSocket } from "../services/websocket";
 import { fallApi, streamChat } from "../services/api";
 import { XfVoiceDictation } from "@muguilin/xf-voice-dictation";
+import { useAuthStore } from "../store/authStore";
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -219,15 +220,29 @@ const Monitoring = () => {
     }, 1000);
   };
 
+  const user = useAuthStore((state) => state.user);
+
   // 处理紧急事件（60秒无交互）
   const handleEmergencyEvent = async () => {
     try {
       // 保存为紧急事件 (eventType = 2 for emergency)
       await saveEvent(2);
+      setIsEmergencyModalVisible(false);
       message.error("Emergency fall event occurred, contact has been notified");
+      // Send emergency email
+      if (user?.email) {
+        try {
+          await fallApi.sendEmergencyEmail(
+            user.email,
+            currentFallId || `event-${Date.now()}`
+          );
+          message.success("Emergency email sent to your address");
+        } catch (e) {
+          message.error("Failed to send emergency email");
+        }
+      }
 
       // 重置所有状态
-      setIsEmergencyModalVisible(false);
       setIsFallDetected(false);
       setUserResponse("");
       setAiResponse("");

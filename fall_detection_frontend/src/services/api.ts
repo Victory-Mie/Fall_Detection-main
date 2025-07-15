@@ -137,6 +137,10 @@ export const fallApi = {
   getEventStats: async () => {
     return api.get('/event/stats');
   },
+
+  sendEmergencyEmail: async (email: string, eventId: string) => {
+    return api.post('/fall/send-emergency-email', { email, eventId });
+  },
 };
 
 // 聊天相关API
