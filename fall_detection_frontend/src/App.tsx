@@ -23,6 +23,7 @@ import AIAssistant from "./components/assistant/AIAssistant";
 import { NotificationProvider } from "./components/notification/NotificationProvider";
 import { useEffect } from "react";
 import { userApi } from "./services/api";
+import NearbyHospitals from "./pages/NearbyHospitals";
 
 function App() {
   const { isAuthenticated, token, logout } = useAuthStore();
@@ -85,6 +86,7 @@ function App() {
               <Route path="history" element={<History />} />
               <Route path="profile" element={<Profile />} />
               <Route path="settings" element={<Settings />} />
+              <Route path="nearby-hospitals" element={<NearbyHospitals />} />
             </Route>
             {/* <Route path="/test" element={<TestPage />} /> */}
             <Route path="*" element={<NotFound />} />

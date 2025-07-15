@@ -63,6 +63,11 @@ const MainLayout = () => {
       label: "History",
     },
     {
+      key: "/nearby-hospitals",
+      icon: <SettingOutlined />,
+      label: "医院检索",
+    },
+    {
       key: "/profile",
       icon: <UserOutlined />,
       label: "Profile",
