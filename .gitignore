@@ -1,1 +1,3 @@
-node_modules/
+fall_detection_frontend/node_modules/
+fall_detection_backend/fall_screenshots/
+FallDetection-Backend-master/src/main/resources/application.yaml
