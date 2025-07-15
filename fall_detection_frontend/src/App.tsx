@@ -16,7 +16,7 @@ import History from "./pages/History";
 import Settings from "./pages/Settings";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
-import TestPage from "./pages/TestPage";
+//import TestPage from "./pages/TestPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { useAuthStore } from "./store/authStore";
 import AIAssistant from "./components/assistant/AIAssistant";
@@ -86,7 +86,7 @@ function App() {
               <Route path="profile" element={<Profile />} />
               <Route path="settings" element={<Settings />} />
             </Route>
-            <Route path="/test" element={<TestPage />} />
+            {/* <Route path="/test" element={<TestPage />} /> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
           <AIAssistant />

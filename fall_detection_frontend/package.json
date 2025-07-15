@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ant-design/charts": "^2.2.16",
+    "@muguilin/xf-voice-dictation": "^1.0.1",
     "@stomp/stompjs": "^7.1.1",
     "antd": "^5.24.9",
     "axios": "^1.9.0",
