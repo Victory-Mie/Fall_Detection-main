@@ -9,7 +9,8 @@ class FallDetector:
     def __init__(self):
         self.model = YOLO("yolov8n-pose.pt")
         self.cap = cv2.VideoCapture(0)
-        self.save_dir = "fall_screenshots"
+        # 修改保存目录为static/fall_images
+        self.save_dir = os.path.join("static", "fall_images")
         os.makedirs(self.save_dir, exist_ok=True)
         self.fall_logs = []
 
@@ -56,9 +57,11 @@ class FallDetector:
         return datetime.now()
 
     def save_fall_screenshot(self, frame, timestamp):
-        path = os.path.join(self.save_dir, f"fall_{timestamp}.jpg")
+        filename = f"fall_{timestamp}.jpg"
+        path = os.path.join(self.save_dir, filename)
         cv2.imwrite(path, frame)
-        return path
+        # 返回前端可访问的URL
+        return f"/static/fall_images/{filename}"
 
     def generate(self):
         while True:

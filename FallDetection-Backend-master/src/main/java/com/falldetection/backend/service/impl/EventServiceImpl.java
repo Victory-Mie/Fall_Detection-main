@@ -65,6 +65,8 @@ public class EventServiceImpl extends ServiceImpl<EventMapper, Event> implements
                     dto.setUserId(event.getUserId());
                     dto.setTimestamp(event.getTimestamp());
                     dto.setEventType(event.getEventType());
+                    // 新增：设置imageUrl
+                    dto.setImageUrl(event.getImageUrl());
 
                     // 手动转换dialog字段：从JSON字符串转换为List<ChatDialog>
                     if (event.getDialog() != null && !event.getDialog().isEmpty()) {
@@ -91,7 +93,7 @@ public class EventServiceImpl extends ServiceImpl<EventMapper, Event> implements
     }
 
     @Override
-    public Result saveEvent(String sessionId, Integer eventType) {
+    public Result saveEvent(String sessionId, Integer eventType, String imageUrl) {
         UserDTO user = UserHolder.getUser();
         if (user == null) {
             return Result.fail("用户未登录");
@@ -101,6 +103,7 @@ public class EventServiceImpl extends ServiceImpl<EventMapper, Event> implements
         event.setUserId(user.getId());
         event.setTimestamp(LocalDateTime.now());
         event.setEventType(eventType);
+        event.setImageUrl(imageUrl); // 新增
         if (sessionId == null) {
             log.warn("sessionId 为空. [event:{}]", event);
             event.setDialog(null);
@@ -116,7 +119,6 @@ public class EventServiceImpl extends ServiceImpl<EventMapper, Event> implements
         boolean success = save(event);
         if (success) {
             if (sessionId != null) {
-                // 清空会话历史，降低sessionId碰撞概率
                 chatService.clearHistory(sessionId);
             }
             return Result.ok();

@@ -18,4 +18,5 @@ public class EventDTO {
     // 事件类型（0:confirm, 1:false_alarm, 2:emergency）
     private Integer eventType;
     private List<ChatDialog> dialog;
+    private String imageUrl;
 }

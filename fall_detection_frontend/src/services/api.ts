@@ -110,10 +110,11 @@ export const fallApi = {
   },
 
   // 保存跌倒事件
-  saveEvent: async (sessionId: string, eventType: number) => {
+  saveEvent: async (sessionId: string, eventType: number, imageUrl?: string) => {
     return api.post('/event/save', {
       sessionId,
-      eventType
+      eventType,
+      imageUrl
     });
   },
 

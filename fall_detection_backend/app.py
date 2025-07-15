@@ -1,8 +1,9 @@
-from flask import Flask, Response, jsonify
+from flask import Flask, Response, jsonify, send_from_directory
 from flask_socketio import SocketIO, emit
 from fall_detection import FallDetector
 import threading
 import time
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
@@ -12,6 +13,11 @@ detector = FallDetector()
 # 全局变量用于控制检测状态
 detection_active = False
 fall_detection_thread = None
+
+# 静态文件路由，提供fall_images下的图片
+@app.route('/static/fall_images/<path:filename>')
+def serve_fall_image(filename):
+    return send_from_directory(os.path.join('static', 'fall_images'), filename)
 
 @app.route('/video_feed')
 def video_feed():
@@ -87,7 +93,7 @@ def run_fall_detection():
                             fall_data = {
                                 "type": "fall_detected",
                                 "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
-                                "image_path": path,
+                                "image_path": path,  # 修正：直接用path变量，带fall_前缀
                                 "fall_id": f"fall_{timestamp}",
                                 "confidence": min(0.85 + (consecutive_falls * 0.05), 0.95),  # 连续检测提高置信度
                                 "consecutive_falls": consecutive_falls

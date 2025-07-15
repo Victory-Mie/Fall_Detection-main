@@ -26,6 +26,7 @@ interface FallEvent {
   timestamp: string;
   eventType: number; // 0: confirmed, 1: false_alarm, 2: emergency
   dialog: ChatDialog[];
+  imageUrl?: string; // 新增
 }
 
 const getStatus = (eventType: number) => {
@@ -201,6 +202,24 @@ const History = () => {
                 </Tag>
               </Descriptions.Item>
             </Descriptions>
+            {/* 新增：显示摔倒截图 */}
+            {selectedEvent.imageUrl && (
+              <div style={{ margin: "16px 0", textAlign: "center" }}>
+                <img
+                  src={`http://localhost:5000${selectedEvent.imageUrl}`}
+                  alt="Fall Screenshot"
+                  style={{
+                    maxWidth: 400,
+                    maxHeight: 300,
+                    border: "2px solid #f5222d",
+                    borderRadius: 8,
+                  }}
+                />
+                <div style={{ color: "#888", fontSize: 12, marginTop: 4 }}>
+                  Fall Screenshot
+                </div>
+              </div>
+            )}
             {selectedEvent.dialog && selectedEvent.dialog.length > 0 && (
               <div style={{ marginTop: 16 }}>
                 <Text strong>Chat History:</Text>

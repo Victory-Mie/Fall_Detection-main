@@ -34,7 +34,8 @@ public class EventController {
     public Result saveEvent(@RequestBody SaveRequest saveRequest) {
         String sessionId = saveRequest.getSessionId();
         Integer eventType = saveRequest.getEventType();
-        return eventService.saveEvent(sessionId, eventType);
+        String imageUrl = saveRequest.getImageUrl(); // 新增
+        return eventService.saveEvent(sessionId, eventType, imageUrl);
     }
 
     @DeleteMapping("/delete/{id}")

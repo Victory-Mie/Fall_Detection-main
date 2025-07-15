@@ -13,4 +13,5 @@ import lombok.NoArgsConstructor;
 public class SaveRequest {
     private String sessionId;
     private Integer eventType;
+    private String imageUrl;
 }

@@ -37,4 +37,7 @@ public class Event implements Serializable {
 
     // 记录用户和ai针对此次事件的问答记录
     private String dialog;
+
+    // 截图URL
+    private String imageUrl;
 }

@@ -37,6 +37,7 @@ interface FallData {
 const Monitoring = () => {
   const [isFallDetected, setIsFallDetected] = useState(false);
   const [isEmergencyModalVisible, setIsEmergencyModalVisible] = useState(false);
+  const modalVisibleRef = useRef(false);
   const [userResponse, setUserResponse] = useState("");
   const [aiResponse, setAiResponse] = useState("");
   const [isAssessing, setIsAssessing] = useState(false);
@@ -47,6 +48,7 @@ const Monitoring = () => {
   const emergencyTimerRef = useRef<number | null>(null);
   const isEmergencyHandlingRef = useRef<boolean>(false);
   const { notifyEmergency } = useThemeStore();
+  const [imageUrl, setImageUrl] = useState<string>("");
 
   // 讯飞语音听写实例
   const xfVoiceRef = useRef<any>(null);
@@ -90,16 +92,23 @@ const Monitoring = () => {
     };
   }, []);
 
+  // 每次弹窗状态变化时，同步ref
+  useEffect(() => {
+    modalVisibleRef.current = isEmergencyModalVisible;
+  }, [isEmergencyModalVisible]);
+
   // Connect to Python WebSocket service
   useEffect(() => {
     pythonWebSocket.connect();
     pythonWebSocket.setFallDetectionCallback((fallData) => {
+      if (modalVisibleRef.current) return; // 用ref判断
       if (isFallDetected) return;
       handleFallDetection({
         isFallDetected: true,
         confidence: fallData.confidence,
         timestamp: Date.now(),
         fallId: fallData.fall_id,
+        imageUrl: fallData.image_path,
       });
     });
     setTimeout(() => {
@@ -125,7 +134,8 @@ const Monitoring = () => {
     audio.play();
   };
 
-  const handleFallDetection = (fallData?: FallData) => {
+  const handleFallDetection = (fallData?: FallData & { imageUrl?: string }) => {
+    if (modalVisibleRef.current) return;
     const currentTime = Date.now();
     const fallCooldown = 5000; // 减少到5秒冷却时间
 
@@ -169,6 +179,11 @@ const Monitoring = () => {
     // 更新连续摔倒计数
     if (fallData && fallData.consecutive_falls) {
       setConsecutiveFalls(fallData.consecutive_falls);
+    }
+
+    // 新增：保存图片URL
+    if (fallData && fallData.imageUrl) {
+      setImageUrl(fallData.imageUrl);
     }
 
     // Start 60-second emergency countdown
@@ -231,7 +246,8 @@ const Monitoring = () => {
     try {
       await fallApi.saveEvent(
         currentFallId || `event-${Date.now()}`,
-        eventType
+        eventType,
+        imageUrl // 新增：传递图片URL
       );
       message.success("事件已保存");
     } catch (error) {
@@ -570,6 +586,24 @@ const Monitoring = () => {
               }}
             >
               {aiResponse}
+            </div>
+          </div>
+        )}
+        {/* 新增：显示摔倒截图 */}
+        {imageUrl && (
+          <div style={{ marginBottom: 16, textAlign: "center" }}>
+            <img
+              src={`http://localhost:5000${imageUrl}`}
+              alt="Fall Screenshot"
+              style={{
+                maxWidth: 400,
+                maxHeight: 300,
+                border: "2px solid #f5222d",
+                borderRadius: 8,
+              }}
+            />
+            <div style={{ color: "#888", fontSize: 12, marginTop: 4 }}>
+              Fall Screenshot
             </div>
           </div>
         )}
