@@ -570,7 +570,7 @@ const Monitoring = () => {
 
                 try {
                   // 构建发送给AI的消息，包含用户描述和上下文
-                  const aiMessage = `User description: ${userResponse}\n\nPlease analyze the user's injury based on the description and provide relevant advice and precautions. Please answer in the user's language, keep the answer concise, and do not exceed 100 words.`;
+                  const aiMessage = ` ${userResponse}\n\nPlease analyze the user's injury based on the description and provide relevant advice and precautions. Please answer in the English, keep the answer not exceed 100 words.`;
 
                   // 使用 streamChat 发送消息到AI
                   await streamChat(
