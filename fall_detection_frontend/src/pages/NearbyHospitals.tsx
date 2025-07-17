@@ -1,159 +1,288 @@
-import { useEffect, useRef, useState } from "react";
-import { List, Typography, message, Card, Spin, Input } from "antd";
+import React, { useEffect, useRef, useState } from "react";
+import { Card, List, Spin, Typography, message } from "antd";
 const { Title } = Typography;
-const { Search } = Input;
-
-// 声明AMap类型（如未全局声明）
-declare global {
-  interface Window {
-    AMap: any;
-  }
-}
 
 const NearbyHospitals = () => {
-  const mapRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef(null);
+  const inputRef = useRef(null);
   const [loading, setLoading] = useState(true);
-  const [hospitals, setHospitals] = useState<any[]>([]);
-  const [center, setCenter] = useState<[number, number]>([
-    116.397428, 39.90923,
-  ]); // 默认北京
+  const [hospitals, setHospitals] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const mapInstance = useRef<any>(null);
-  const autoCompleteInstance = useRef<any>(null);
+  const mapInstance = useRef(null);
 
-  // 页面加载后自动定位并搜索附近医院
+  // New Google Maps API v3.49+ async/await pattern
   useEffect(() => {
-    if (!window.AMap || !mapRef.current) return;
+    let map;
+    let center;
+    let autocomplete;
 
-    const map = new window.AMap.Map(mapRef.current, {
-      zoom: 15,
-      // center,
-      lang: "en",
-    });
-    mapInstance.current = map;
-
-    // 初始化输入提示
-    window.AMap.plugin(["AMap.AutoComplete"], function () {
-      autoCompleteInstance.current = new window.AMap.AutoComplete({
-        input: "searchInput", // 使用ID而不是ref
+    async function initMap() {
+      if (!window.google || !mapRef.current) {
+        setLoading(false);
+        return;
+      }
+      const { Map } = await window.google.maps.importLibrary("maps");
+      center = new window.google.maps.LatLng(39.915, 116.404); // Default: Beijing
+      map = new Map(mapRef.current, {
+        center: center,
+        zoom: 15,
+        mapId: "DEMO_MAP_ID",
       });
+      mapInstance.current = map;
 
-      // 监听选择事件
-      autoCompleteInstance.current.on("select", function (e: any) {
-        console.log("选择了:", e.poi);
-        setSearchText(e.poi.name);
-        // 自动搜索
-        handleSearch(e.poi.name);
-      });
-    });
-
-    // 定位
-    window.AMap.plugin("AMap.Geolocation", function () {
-      const geolocation = new window.AMap.Geolocation({
-        enableHighAccuracy: true, // 是否使用高精度定位，默认：true
-        timeout: 10000, // 设置定位超时时间，默认：无穷大
-        offset: [10, 20], // 定位按钮的停靠位置的偏移量
-        zoomToAccuracy: true, //  定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
-        position: "RB", //  定位按钮的排放位置,  RB表示右下
-      
-      });
-
-      map.addControl(geolocation);
-      console.log("geolocation", geolocation);
-      geolocation.getCurrentPosition(function (status: string, result: any) {
-        if (status === "complete") {
-          const lnglat = [result.position.lng, result.position.lat] as [
-            number,
-            number
-          ];
-          console.log("定位成功:", lnglat);
-          setCenter(lnglat);
-          map.setCenter(lnglat);
-          searchNearby(map, lnglat);
-        } else {
-          message.warning("Location failed, using default position");
-          // searchNearby(map, center);
-        }
-      });
-    });
-    // eslint-disable-next-line
-  }, []);
-
-  // 搜索附近医院
-  const searchNearby = (map: any, lnglat: [number, number]) => {
-    setLoading(true);
-    window.AMap.plugin(["AMap.PlaceSearch"], function () {
-      const placeSearch = new window.AMap.PlaceSearch({
-        type: "Hospital",
-        pageSize: 10,
-        pageIndex: 1,
-        city: "auto",
-        map: map,
-      });
-      placeSearch.searchNearBy(
-        "Hospital",
-        lnglat,
-        5000,
-        function (status: string, result: any) {
-          setLoading(false);
-          const pois = result?.poiList?.pois || [];
-          if (pois.length > 0) {
-            setHospitals(pois);
-          } else {
-            setHospitals([]);
-            message.error("No nearby hospitals found");
+      // Geolocation
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            center = new window.google.maps.LatLng(
+              position.coords.latitude,
+              position.coords.longitude
+            );
+            map.setCenter(center);
+            searchNearby(center, map);
+          },
+          () => {
+            message.warning("Geolocation failed, using default location.");
+            searchNearby(center, map);
           }
+        );
+      } else {
+        searchNearby(center, map);
+      }
+
+      // Place Autocomplete
+      const { Autocomplete } = await window.google.maps.importLibrary("places");
+      autocomplete = new Autocomplete(inputRef.current, {
+        fields: ["geometry", "formatted_address"],
+      });
+      autocomplete.addListener("place_changed", async () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) {
+          message.error("No details available for input: '" + place.name + "'");
+          setLoading(false);
+          return;
         }
+        setSearchText(place.formatted_address);
+        map.setCenter(place.geometry.location);
+        await searchNearby(place.geometry.location, map);
+      });
+
+      // 在initMap()内部
+      const controlDiv = document.createElement("div");
+      controlDiv.style.margin = "10px";
+
+      const controlUI = document.createElement("button");
+      controlUI.style.backgroundColor = "#fff";
+      controlUI.style.border = "5px solid #fff";
+      controlUI.style.borderRadius = "100px";
+      controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+      controlUI.style.cursor = "pointer";
+      controlUI.style.marginRight = "0px";
+      controlUI.style.padding = "8px";
+      controlUI.title = "Click to locate your position";
+      controlUI.innerText = "📍";
+      controlDiv.appendChild(controlUI);
+
+      controlUI.addEventListener("click", () => {
+        if (navigator.geolocation) {
+          setLoading(true);
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const userPos = new window.google.maps.LatLng(
+                position.coords.latitude,
+                position.coords.longitude
+              );
+              map.setCenter(userPos);
+              searchNearby(userPos, map);
+            },
+            () => {
+              message.warning("Geolocation failed.");
+              setLoading(false);
+            }
+          );
+        } else {
+          message.warning("Geolocation not supported.");
+        }
+      });
+
+      // 将控件添加到地图右下角
+      map.controls[window.google.maps.ControlPosition.RIGHT_BOTTOM].push(
+        controlDiv
       );
-    });
-  };
-
-  // 搜索指定地名附近的医院
-  const handleSearch = (searchValue?: string) => {
-    const valueToSearch = searchValue || searchText;
-    if (!valueToSearch) return;
-
-    if (!window.AMap || !mapRef.current) {
-      message.error("AMap API not available");
-      return;
     }
 
-    message.info("Searching for hospitals near: " + valueToSearch);
-
-    window.AMap.plugin(["AMap.Geocoder"], function () {
-      const geocoder = new window.AMap.Geocoder();
-      geocoder.getLocation(
-        valueToSearch,
-        function (status: string, result: any) {
-          if (
-            status === "complete" &&
-            result.geocodes &&
-            result.geocodes.length > 0
-          ) {
-            const location = result.geocodes[0].location;
-            const lnglat: [number, number] = [location.lng, location.lat];
-            setCenter(lnglat);
-            if (mapInstance.current) mapInstance.current.setCenter(lnglat);
-            searchNearby(mapInstance.current, lnglat);
-          } else {
-            message.error("Failed to locate the place");
-          }
+    async function searchNearby(center, map) {
+      setLoading(true);
+      try {
+        const { Place, SearchNearbyRankPreference } =
+          await window.google.maps.importLibrary("places");
+        const { AdvancedMarkerElement } =
+          await window.google.maps.importLibrary("marker");
+        const request = {
+          fields: [
+            "displayName",
+            "location",
+            "businessStatus",
+            "formattedAddress",
+            "types",
+          ],
+          locationRestriction: {
+            center: center,
+            radius: 5000,
+          },
+          includedPrimaryTypes: ["hospital"],
+          maxResultCount: 10,
+          rankPreference: SearchNearbyRankPreference.POPULARITY,
+          language: "en-US",
+          region: "us",
+        };
+        // @ts-ignore
+        const { places } = await Place.searchNearby(request);
+        if (places && places.length) {
+          setHospitals(places);
+          // Optionally add markers
+          const { LatLngBounds } = await window.google.maps.importLibrary(
+            "core"
+          );
+          const bounds = new LatLngBounds();
+          places.forEach((place) => {
+            new AdvancedMarkerElement({
+              map,
+              position: place.location,
+              title: place.displayName?.text || place.displayName,
+            });
+            bounds.extend(place.location);
+          });
+          map.fitBounds(bounds);
+        } else {
+          setHospitals([]);
+          message.error("No nearby hospitals found.");
         }
-      );
+      } catch (e) {
+        setHospitals([]);
+        message.error("Nearby search failed.");
+        console.error(e);
+      }
+      setLoading(false);
+    }
+
+    initMap();
+  }, []);
+
+  // Manual search by address
+  const handleSearch = async () => {
+    if (!searchText) return;
+    if (!window.google || !mapRef.current) {
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    const { Geocoder } = await window.google.maps.importLibrary("geocoding");
+    const geocoder = new Geocoder();
+    geocoder.geocode({ address: searchText }, async (results, status) => {
+      if (status === "OK" && results[0]) {
+        const location = results[0].geometry.location;
+        mapInstance.current.setCenter(location);
+        await searchNearby(location, mapInstance.current);
+      } else {
+        message.error("Could not find the location. Status: " + status);
+        setLoading(false);
+      }
     });
   };
+
+  // searchNearby function must be in scope for handleSearch
+  async function searchNearby(center, map) {
+    setLoading(true);
+    try {
+      const { Place, SearchNearbyRankPreference } =
+        await window.google.maps.importLibrary("places");
+      const { AdvancedMarkerElement } = await window.google.maps.importLibrary(
+        "marker"
+      );
+      const request = {
+        fields: [
+          "displayName",
+          "location",
+          "businessStatus",
+          "formattedAddress",
+          "types",
+        ],
+        locationRestriction: {
+          center: center,
+          radius: 5000,
+        },
+        includedPrimaryTypes: ["hospital"],
+        maxResultCount: 10,
+        rankPreference: SearchNearbyRankPreference.POPULARITY,
+        language: "en-US",
+        region: "us",
+      };
+      // @ts-ignore
+      const { places } = await Place.searchNearby(request);
+      if (places && places.length) {
+        setHospitals(places);
+        // Optionally add markers
+        const { LatLngBounds } = await window.google.maps.importLibrary("core");
+        const bounds = new LatLngBounds();
+        places.forEach((place) => {
+          new AdvancedMarkerElement({
+            map,
+            position: place.location,
+            title: place.displayName?.text || place.displayName,
+          });
+          bounds.extend(place.location);
+        });
+        map.fitBounds(bounds);
+      } else {
+        setHospitals([]);
+        message.error("No nearby hospitals found.");
+      }
+    } catch (e) {
+      setHospitals([]);
+      message.error("Nearby search failed.");
+      console.error(e);
+    }
+    setLoading(false);
+  }
 
   return (
     <div style={{ minHeight: "100vh" }}>
-      <Title level={2}>Hospital Search</Title>
+      <Title level={2}>Nearby Hospitals</Title>
       <Card style={{ marginBottom: 16 }}>
-        <Search
-          id="searchInput"
-          placeholder="Input the place name"
-          onSearch={handleSearch}
-          style={{ maxWidth: 500 }}
-          enterButton
-        />
+        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+          <input
+            ref={inputRef}
+            type="text"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            placeholder="Enter a place"
+            style={{
+              flex: 1,
+              maxWidth: 500,
+              padding: "8px 12px",
+              border: "1px solid #d9d9d9",
+              borderRadius: "6px",
+              fontSize: "14px",
+              outline: "none",
+            }}
+            id="google-autocomplete"
+          />
+          <button
+            onClick={handleSearch}
+            style={{
+              padding: "8px 16px",
+              backgroundColor: "#1890ff",
+              color: "white",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              fontSize: "14px",
+            }}
+          >
+            Search
+          </button>
+        </div>
       </Card>
       <div style={{ display: "flex", gap: 24 }}>
         <div style={{ flex: 1, minWidth: 400, height: 400 }}>
@@ -165,6 +294,7 @@ const NearbyHospitals = () => {
               borderRadius: 8,
               border: "1px solid #eee",
             }}
+            id="google-map"
           />
         </div>
         <div style={{ flex: 1, minWidth: 300 }}>
@@ -177,14 +307,20 @@ const NearbyHospitals = () => {
             ) : (
               <List
                 dataSource={hospitals}
-                renderItem={(item: any) => (
+                renderItem={(item) => (
                   <List.Item>
                     <List.Item.Meta
-                      title={item.name}
+                      title={item.displayName?.text || item.displayName}
                       description={
                         <>
-                          <div>{item.address}</div>
-                          {item.tel && <div>Tel: {item.tel}</div>}
+                          <div>
+                            {item.formattedAddress ||
+                              (item.location &&
+                                `${item.location.lat}, ${item.location.lng}`)}
+                          </div>
+                          {item.businessStatus && (
+                            <div>Status: {item.businessStatus}</div>
+                          )}
                         </>
                       }
                     />
